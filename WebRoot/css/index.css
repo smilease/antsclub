@@ -1,0 +1,126 @@
+body{
+	ont-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	font-size: 1em;
+	line-height: 1.4;
+	display: block;
+}
+#bar{
+	height: 40px;
+	line-height: 40px;
+	background: #666;
+}
+#bar, #bar a, #nav a, #login a{
+	color: #eee;
+}
+.inner{
+	margin: 0 auto;
+	width: 800px;
+	font-size: 12px;
+}
+#logo{
+	float: left;
+	display: block;
+	margin-top: 5px;
+	margin-right: 2em;
+}
+.left{
+	float: left;
+}
+#nav a .focus{
+	text-decoration: none;
+	background: #454545;
+	color: #fff;
+}
+#nav a{
+	float: left;
+	diplay: inline-block;
+	padding: 0 1em;
+	margin: 0;
+}
+a, a:visited{
+	color: #3594b3;
+	text-decoration: none;
+}
+.right{
+	float: right;
+}
+#login a{
+	margin-left: 0.5em;
+	font-weight: bold;
+}
+#menu{
+	margin: 2.5em auto;
+}
+#menu ul li a {
+	font-size: 14px;
+	color: #666;
+	display: inline-block;
+	padding: 4px 12px;
+	-moz-boder-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2 ease-in;
+	transition: all 0.2 ease-in;
+}
+
+ul, li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+#content{
+	padding: 0 0 3px 0;
+}
+h2{
+	font-size: 14px;
+	font-weight: normal;
+	border-bottom: 1px dotted #dadada;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+.more{
+	float: right;
+}
+#main{
+	width: 500px;
+	float: left;
+}
+.activity{
+	height: 158px;
+}
+.activity_left{
+	width: 150px;
+	margin-left: 30px;
+}
+.activity_right{
+	width: 150px;
+	float: right;
+	margin-right: 30px;
+}
+.activity_info{
+	float: left;
+}
+.activity_info li{
+	line-height: 18px;
+	display: block;
+	float:none;
+}
+.activity_title{
+	color: green;
+}
+#side{
+	float: right;
+	width: 260px;
+	height: 600px;
+}
+.active_info{
+	height: 220px;
+}
+.active_detail{
+	margin-bottom: 20px;
+	float: left;
+	width: 150px;
+}
