@@ -6,7 +6,6 @@ CREATE TABLE `activity` (
   `max_num` int(3) default NULL COMMENT '限制人数',
   `min_num` int(3) default NULL COMMENT '最少人数',
   `sign_num` int(3) default NULL COMMENT '已报名人数',
-  `SEQ` decimal(22,0) NOT NULL COMMENT '顺序',
   PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表'
 
