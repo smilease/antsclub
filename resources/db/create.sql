@@ -7,7 +7,7 @@ CREATE TABLE `activity` (
   `min_num` int(3) default NULL COMMENT '最少人数',
   `sign_num` int(3) default NULL COMMENT '已报名人数',
   PRIMARY KEY  (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表';
 
 CREATE TABLE `user` (
   `id` varchar(36) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `user` (
   `modify_time` datetime default NULL COMMENT '最后修改时间',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `NAME` (`NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 CREATE TABLE `user_activity` (
   `id`    varchar(36) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE `user_activity` (
   PRIMARY KEY  (`ID`),
   FOREIGN KEY (`activity_id`) REFERENCES `activity` (`ID`),
   FOREIGN KEY (`use_id`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户活动表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户活动表';
 
 
 CREATE TABLE `group` (
@@ -37,7 +37,7 @@ CREATE TABLE `group` (
   `modify_time` datetime default NULL COMMENT '最后修改时间',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `NAME` (`NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='群组表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='群组表';
 
 CREATE TABLE `user_group` (
   `id`    varchar(36) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `user_group` (
   PRIMARY KEY  (`ID`),
   FOREIGN KEY (`group_id`) REFERENCES `group` (`ID`),
   FOREIGN KEY (`use_id`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户群组表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户群组表';
 
 CREATE TABLE `meta` (
   `id` varchar(36) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `meta` (
   `modify_time` datetime default NULL COMMENT '最后修改时间',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `NAME` (`NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='标签表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='标签表';
 
 
 
