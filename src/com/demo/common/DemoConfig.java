@@ -1,5 +1,8 @@
 package com.demo.common;
 
+import antsclub.activity.Activity;
+import antsclub.activity.ActivityController;
+
 import com.alibaba.fastjson.JSONObject;
 import com.demo.blog.Blog;
 import com.demo.blog.BlogController;
@@ -13,7 +16,6 @@ import com.jfinal.core.JFinal;
 import com.jfinal.kit.StringKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
 
 /**
@@ -36,6 +38,7 @@ public class DemoConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", CommonController.class);
 		me.add("/blog", BlogController.class);
+		me.add("/activity", ActivityController.class);
 	}
 	
 	/**
@@ -65,6 +68,7 @@ public class DemoConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("blog", Blog.class);	// 映射blog 表到 Blog模型
+		arp.addMapping("activity", Activity.class);	// 映射blog 表到 Blog模型
 	}
 	
 	/**

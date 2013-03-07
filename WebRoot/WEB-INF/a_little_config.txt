@@ -1,4 +1,4 @@
-jdbcUrl = jdbc:mysql://127.0.0.1/jfinal_demo?characterEncoding=GBK&zeroDateTimeBehavior=convertToNull
+jdbcUrl = jdbc:mysql://127.0.0.1/antsclub?characterEncoding=GBK&zeroDateTimeBehavior=convertToNull
 user = root
 password =000000
 devMode = true
