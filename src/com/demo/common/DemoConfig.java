@@ -2,6 +2,8 @@ package com.demo.common;
 
 import antsclub.activity.Activity;
 import antsclub.activity.ActivityController;
+import antsclub.user.User;
+import antsclub.user.UserController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.blog.Blog;
@@ -39,6 +41,7 @@ public class DemoConfig extends JFinalConfig {
 		me.add("/", CommonController.class);
 		me.add("/blog", BlogController.class);
 		me.add("/activity", ActivityController.class);
+		me.add("/user",UserController.class);
 	}
 	
 	/**
@@ -68,7 +71,8 @@ public class DemoConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("blog", Blog.class);	// 映射blog 表到 Blog模型
-		arp.addMapping("activity", Activity.class);	// 映射blog 表到 Blog模型
+		arp.addMapping("activity", Activity.class);	// 映射Activity 表到 Activity模型
+		arp.addMapping("user", User.class);
 	}
 	
 	/**
