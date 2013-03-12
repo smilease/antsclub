@@ -9,6 +9,6 @@ public class CommonController extends Controller {
 	
 	public void index() {
 		//render("/common/index.jsp");
-		render("/index.html");
+		render("/index.jsp");
 	}
 }

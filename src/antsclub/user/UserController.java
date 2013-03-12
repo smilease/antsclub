@@ -2,7 +2,6 @@ package antsclub.user;
 
 import java.util.List;
 import java.util.UUID;
-
 import com.jfinal.core.Controller;
 
 public class UserController extends Controller{
@@ -13,15 +12,21 @@ public class UserController extends Controller{
 		User user=getModel(User.class);
 		user.set("id", UUID.randomUUID().toString());
 		user.save();
-		redirect("/index.html");
+		redirect("/index.jsp");
 	}	
 	public void login(){
 		String name=getPara("user.name");
 		String password=getPara("user.password");
 		List<User> l=User.dao.find("select * from user where name='"
 									+name+"' and password='"+password+"'");
+		
 		if(l.size()>0){
-			redirect("/index.html");
+			getSession().setAttribute("username", name);
+			redirect("/index.jsp");
 		}
+	}
+	public void logout(){
+		getSession().removeAttribute("username");
+		redirect("/index.jsp");
 	}
 }

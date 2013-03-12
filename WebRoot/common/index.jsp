@@ -9,7 +9,7 @@
 <body>
 	<div class="manage_container">
 		<div class="manage_head">
-			<div class="manage_logo"><a href="http://code.google.com/p/jfinal" target="_blank">JFinal web framework</a></div>
+			<div class="manage_logo"><a href="https://github.com/smilease/antsclub" target="_blank">AntsClub</a></div>
 			<div id="nav">
 				<ul>
 					<li><a href="/"><b>首页</b></a></li>
