@@ -1,0 +1,152 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size: 12px;}
+	
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:active {
+	color: #330099;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+
+
+.zt12B {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #000000;
+}
+.zt12B a:link {
+	color: #FF0000;
+	text-decoration: none;
+}
+.zt12B a:active {
+	color: #333333;
+	text-decoration: none;
+}
+.zt12B a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+.zt12B a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.zt12 {
+	font-size: 12px;
+		line-height: 20px;
+}
+.zt12HJJ {
+	font-size: 12px;
+		line-height: 20px;
+		letter-spacing: -2px;
+}
+.zthengjj {
+	letter-spacing: -2px;
+}
+
+
+.zt12BHJJ {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	letter-spacing: -1px;
+}
+
+.zt12BHJJ a:link {
+	color: #FF0000;
+	text-decoration: none;
+}
+.zt12BHJJ a:active {
+	color: #333333;
+	text-decoration: none;
+}
+.zt12BHJJ a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+.zt12BHJJ a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+
+.zt12BHJJ1 {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	letter-spacing: -1.5px;
+}
+.zt12BHJJ1 a:link {
+	color: #FF0000;
+	text-decoration: none;
+}
+.zt12BHJJ1 a:active {
+	color: #333333;
+	text-decoration: none;
+}
+.zt12BHJJ1 a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+.zt12BHJJ1 a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+
+
+
+
+
+.zt12BHJJ2 {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	letter-spacing: -2px;
+}
+
+
+
+
+
+
+.zthong12 {
+	font-size: 12px;
+	color: #FF0000;
+}
+.ztlv12 {
+	font-size: 12px;
+	color: #009933;
+}

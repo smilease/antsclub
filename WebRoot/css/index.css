@@ -83,7 +83,7 @@ ul,li {
 	height: 400px;
 }
 #left{
-	width: 480px;
+	width: 520px;
 	height: 400px;
 	float: left;
 }
@@ -107,7 +107,7 @@ h2{
 .info_l {
 	height: 80px;
 	margin-left: 10px;
-	width: 180px;
+	width: 200px;
 }
 .info_r {
 	height: 80px;

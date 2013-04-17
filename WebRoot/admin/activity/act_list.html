@@ -1,0 +1,235 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+		<title>AntsClub 开源社团管理系统</title>
+	</head>
+	<body>
+	<div id="toolbar" class="datagrid-toolbar" style="height: auto;">
+	<fieldset>
+		<legend>筛选</legend>
+		<table class="tableForm">
+			<tr>
+				<th>活动名称</th>
+				<td colspan="2"><input name="name" style="width: 305px;" />
+				</td>
+			</tr>
+			<tr>
+				<th>创建时间</th>
+				<td colspan="2"><input name="createdatetimeStart" class="easyui-datetimebox" editable="false" style="width: 150px;" />-<input name="createdatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 150px;" />
+				</td>
+			</tr>
+			<tr>
+				<th>最后修改时间</th>
+				<td><input name="modifydatetimeStart" class="easyui-datetimebox" editable="false" style="width: 150px;" />-<input name="modifydatetimeEnd" class="easyui-datetimebox" editable="false" style="width: 150px;" /></td>
+				<td><a class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="searchFun();" href="javascript:void(0);">查找</a><a class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="clearFun();" href="javascript:void(0);">清空</a>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<div>
+		<a class="easyui-linkbutton" iconCls="icon-add" onclick="append();" plain="true" href="javascript:void(0);">增加</a> 
+		<a class="easyui-linkbutton" iconCls="icon-remove" onclick="remove();" plain="true" href="javascript:void(0);">删除</a> 
+		<a class="easyui-linkbutton" iconCls="icon-edit" onclick="edit();" plain="true" href="javascript:void(0);">编辑</a> 
+		<a class="easyui-linkbutton" iconCls="icon-edit" onclick="editRole();" plain="true" href="javascript:void(0);">批量更改角色</a> 
+		<a class="easyui-linkbutton" iconCls="icon-undo" onclick="datagrid.datagrid('unselectAll');" plain="true" href="javascript:void(0);">取消选中</a>
+		</div>
+	</div>
+	<table id='dg'></table>
+	<div id="dlg_act" style="display: none;overflow: hidden;">
+		<form id='form_act' method="post">
+			<div class="row">
+				<label class="field">活动分类
+				</label>
+				<div class="item">
+					<select id="type" class="basic-input" name="activity.typeCode">
+						<option value="请选择">请选择</option>
+						<option value="羽毛球">羽毛球</option>
+						<option value="桌球">桌球</option>
+						<option value="游泳">游泳</option>
+					</select>
+					<select id="subtype" class="basic-input hide" name="subtype" style="display:none">
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<label class="field">活动标题
+				</label>
+				<div class="item">
+					<input id="title" class="basic-input" name="activity.title" maxlength="70" size="46"/>
+				</div>
+			</div>
+			      
+			<div class="row">
+				<label class="field">活动地点
+				</label>
+				<div class="item">
+					<input id="address" class="basic-input" name="activity.address" maxlength="70" size="46"/>
+				</div>
+			</div>
+			<div class="row">
+				<label class="field">开始时间
+				</label>
+				<div class="item">
+					<input id="startTime" name="activity.startTime"></input>
+				</div>
+			</div>
+			<div class="row">
+				<label class="field">结束时间
+				</label>
+				<div class="item">
+					<input id="endTime" name="activity.endTime"></input>
+				</div>
+			</div>
+			<div class="row">
+				<label class="field">活动详情
+				</label>
+				<div class="item">
+					<textarea clas="basic-input" rows="10" cols="42" max_length="4000"></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="userDialog" style="display: none;overflow: hidden;">
+		<form id="userForm" method="post">
+			<table class="tableForm">
+				<tr>
+					<th>用户ID</th>
+					<td><input name="id" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<th>登录名称</th>
+					<td><input name="name" class="easyui-validatebox" required="true" /></td>
+				</tr>
+				<tr title="如果不更改密码,请留空!">
+					<th>登录密码</th>
+					<td><input name="password" type="password" /></td>
+				</tr>
+				<tr>
+					<th>创建时间</th>
+					<td><input name="createdatetime" class="easyui-datetimebox" style="width: 156px;" /></td>
+				</tr>
+				<tr>
+					<th>最后修改时间</th>
+					<td><input name="modifydatetime" class="easyui-datetimebox" style="width: 156px;" /></td>
+				</tr>
+				<tr>
+					<th>所属角色</th>
+					<td><select name="roleId" style="width: 156px;"></select></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+ 	<script type="text/javascript">
+ 		var dlg_act;
+ 		var userDialog;
+ 		var form_act;
+		$(function() {
+			$('#dg').datagrid({  
+			    url:'/activity/datagrid',  
+			    columns:[[  
+			        {field:'title',title:'活动名称',width:100},
+			        {field:'address',title:'活动地点',width:100},
+			        {field:'startTime',title:'开始时间',width:150,
+			        	formatter: function(value,row,index){
+							return removeDotZero(value);
+					}},  
+			        {field:'endTime',title:'结束时间',width:150,
+			        	formatter: function(value,row,index){
+							return removeDotZero(value);
+					}}  
+			    ]]  
+			}); 
+			$('#startTime').datetimebox({});
+			$('#endTime').datetimebox({});
+			dlg_act=$('#dlg_act').show().dialog({
+				modal : true,
+				title : '活动信息',
+				buttons : [ {
+					text : '确定',
+					handler : function() {
+						form_act.form('submit', {
+							url : '/activity/save',
+							success : function(data) {
+								try {
+									var d = $.parseJSON(data);
+									if (d) {
+										userDialog.dialog('close');
+										$.messager.show({
+											msg : '用户创建成功！',
+											title : '提示'
+										});
+										datagrid.datagrid('reload');
+									}
+								} catch (e) {
+									$.messager.show({
+										msg : '用户名称已存在！',
+										title : '提示'
+									});
+								}
+							}
+						});
+					}
+				} ]
+			}).dialog('close');
+			userDialog = $('#userDialog').show().dialog({
+				modal : true,
+				title : '用户信息',
+				buttons : [ {
+					text : '确定',
+					handler : function() {
+						alert('asdf');
+						if (userForm.find('[name=id]').val() != '') {
+							userForm.form('submit', {
+								url : 'userController.do?edit',
+								success : function(data) {
+									userDialog.dialog('close');
+									$.messager.show({
+										msg : '用户编辑成功！',
+										title : '提示'
+									});
+									datagrid.datagrid('reload');
+								}
+							});
+						} else {
+							userForm.form('submit', {
+								url : 'userController.do?add',
+								success : function(data) {
+									try {
+										var d = $.parseJSON(data);
+										if (d) {
+											userDialog.dialog('close');
+											$.messager.show({
+												msg : '用户创建成功！',
+												title : '提示'
+											});
+											datagrid.datagrid('reload');
+										}
+									} catch (e) {
+										$.messager.show({
+											msg : '用户名称已存在！',
+											title : '提示'
+										});
+									}
+								}
+							});
+						}
+					}
+				} ]
+			}).dialog('close');
+			form_act = $('#form_act').form();
+		});
+		function append(){
+			dlg_act.dialog('open');
+			//userDialog.dialog('open');
+		}
+		function save(){
+			$('#submit_form').click(function(){
+				alert('adsf');
+				$('#form_act').submit();
+			});
+		}
+	</script>
+ </body>
+</html>

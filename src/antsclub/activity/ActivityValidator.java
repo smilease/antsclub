@@ -18,7 +18,7 @@ public class ActivityValidator extends Validator {
 		
 		String actionKey = getActionKey();
 		if (actionKey.equals("/activity/save"))
-			controller.render("add.jsp");
+			controller.render("act_add.jsp");
 		else if (actionKey.equals("/activity/update"))
 			controller.render("edit.jsp");
 	}
